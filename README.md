@@ -21,3 +21,14 @@ export S3_CONFIG__BUCKET_NAME="mys3bucketrsa2023" && \
 export S3_CONFIG__PATH_PREFIX="/" && \
 go run main.go
 ```
+
+# Run (docker)
+
+```
+docker run -it --rm \
+--name=sample-golang-app \
+-e S3_CONFIG__BUCKET_NAME="mys3bucketrsa2023" \
+-e S3_CONFIG__PATH_PREFIX="/" \
+-e S3_CONFIG__REGION="us-west-2" \
+sample-golang-app:latest
+```
