@@ -1,7 +1,13 @@
 # sample-golang-app-s3
 Golang app to demonstrate IAM role authentication to s3 resources
 
-# Run (local)
+## Build Docker image
+
+```bash
+docker build -t sample-golang-app:latest .
+```
+
+# Run (local, from src)
 ```
 # exmple 1
 export S3_CONFIG__REGION="***" && \
