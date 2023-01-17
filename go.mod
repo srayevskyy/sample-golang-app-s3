@@ -1,10 +1,9 @@
 module github.com/srayevskyy/sample-golang-app-s3
 
-go 1.19
+go 1.18
 
 require (
 	github.com/aws/aws-sdk-go v1.44.180
-	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/go-playground/validator/v10 v10.11.1
 	github.com/spf13/viper v1.14.0
 )
@@ -28,7 +27,6 @@ require (
 	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e // indirect
 	golang.org/x/sys v0.1.0 // indirect
 	golang.org/x/text v0.4.0 // indirect
-	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
