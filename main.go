@@ -27,6 +27,7 @@ type S3ConfigType struct {
 
 var (
 	StructValidator = validator.New()
+	GitCommitHash   = "unknown"
 )
 
 func (s3Config S3ConfigType) UploadFileToS3(
@@ -39,11 +40,10 @@ func (s3Config S3ConfigType) UploadFileToS3(
 		TgtS3SessUpload   *session.Session
 		TgtS3UploadResult *s3manager.UploadOutput
 		TgtAWSConfig      = aws.Config{
-			Region: &s3Config.Region,
+			Region:                        &s3Config.Region,
+			CredentialsChainVerboseErrors: aws.Bool(true),
 		}
 	)
-
-	TgtAWSConfig.CredentialsChainVerboseErrors = aws.Bool(true)
 
 	if s3Config.AccessKeyId != "" && s3Config.SecretAccessKey != "" {
 		log.Printf("AWS access key and secret key have been provided, connecting with static credentials")
@@ -128,6 +128,7 @@ func main() {
 		err       error
 		appConfig AppConfigType
 	)
+	log.Printf("Pipeline source code git commit hash: %s", GitCommitHash)
 	if err = appConfig.ReadConfig(); err != nil {
 		log.Fatalf("Error reading app config: %s", err.Error())
 	}
